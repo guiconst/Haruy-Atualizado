@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        barlow: ['Barlow', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#ca3c3f',
+                        dark: '#222222',
+                        muted: '#999999',
+                        footer: '#333333',
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <title>Haruy Sushi</title>
+</head>
+
+<body class="font-barlow">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="#" class="flex items-center py-4 px-2">
+                            <img src="./assets/images/logo.png" alt="Logo Haruy Sushi" class="h-8 w-auto">
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="#" class="py-4 px-2 text-red-600 border-b-4 border-red-600 font-semibold">Início</a>
+                        <a href="#cardapio"
+                            class="py-4 px-2 text-gray-500 font-semibold hover:text-red-600 transition duration-300">Cardápio</a>
+                        <a href="#"
+                            class="py-4 px-2 text-gray-500 font-semibold hover:text-red-600 transition duration-300">Sobre</a>
+                        <a href="#"
+                            class="py-4 px-2 text-gray-500 font-semibold hover:text-red-600 transition duration-300">Contato</a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="btn-mobile" class="outline-none mobile-menu-button">
+                        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-gray-500 hover:text-purple-600" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-gray-500 hover:text-purple-600 hidden" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden mobile-menu md:hidden" id="mobile-menu">
+            <ul>
+                <li><a href="#" class="block text-sm px-2 py-4 text-white bg-red-600 font-semibold">Início</a></li>
+                <li><a href="#cardapio" class="block text-sm px-2 py-4 text-gray-500 hover:text-red-600">Cardápio</a>
+                </li>
+                <li><a href="#" class="block text-sm px-2 py-4 text-gray-500 hover:text-red-600">Sobre</a></li>
+                <li><a href="#" class="block text-sm px-2 py-4 text-gray-500 hover:text-red-600">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="flex flex-col md:flex-row justify-center items-center w-full text-center gap-6 py-6" aria-labelledby="slogan">
+            <div class="w-full md:w-1/2">
+                <h2 id="slogan" class="text-3xl md:text-4xl font-semibold mb-4">O verdadeiro sabor da cozinha japonesa</h2>
+                <p><a class="inline-block border border-gray-800 rounded-xl px-4 py-2 text-base hover:bg-gray-100 transition" href="#cardapio">Veja o Cardápio</a></p>
+            </div>
+            <figure class="w-full md:w-1/2">
+                <img src="./assets/images/banner.png" alt="Banner Haruy Sushi" class="w-full h-auto">
+            </figure>
+        </section>
+
+        <section class="box-border border-t border-dashed border-[#999999] w-full mx-auto text-center mt-[100px] pt-[50px] px-[15px] pb-[10px]" id="cardapio">
+            <h1 class="text-3xl font-bold">Cardápio</h1>
+
+            <nav id="nav-categorias" class="overflow-x-auto whitespace-nowrap snap-x flex gap-2 mt-6 pb-1">
+                <button data-cat="sushis" class="snap-start px-4 py-1 rounded-full bg-gray-200 text-gray-700 font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-categoria">Sushi</button>
+                <button data-cat="temakis" class="snap-start px-4 py-1 rounded-full bg-gray-200 text-gray-700 font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-categoria">Temakis</button>
+                <button data-cat="bebidas" class="snap-start px-4 py-1 rounded-full bg-gray-200 text-gray-700 font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-categoria">Bebidas</button>
+                <button data-cat="sobremesas" class="snap-start px-4 py-1 rounded-full bg-gray-200 text-gray-700 font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-categoria">Sobremesas</button>
+            </nav>
+
+            <div id="cat-sushis" class="categoria-conteudo hidden">
+                <h2 class="text-left text-red-600 text-2xl font-semibold mt-12">Sushi &amp; Sashimi</h2>
+                <div>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Combinado Sushi</h3>
+                            <p class="text-base text-gray-600">10 Sashimis Variados, 10 Uramakis Filadélfia e 10 Uramakis Hot</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 99,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Combinado Sushi Premium</h3>
+                            <p class="text-base text-gray-600">10 Sashimis Variados, 10 Uramakis Filadélfia e 10 Uramakis Especiais</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 115,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Combinado Hot</h3>
+                            <p class="text-base text-gray-600">1 Temaki Filadélfia Médio, 10 Uramakis Filadélfia e 10 Hot Filadélfia</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 99,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Combinado Hot Premium</h3>
+                            <p class="text-base text-gray-600">1 Temaki Filadélfia Médio, 10 Uramakis Filadélfia, 10 Hot Filadélfia e 5 Niguiris</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 120,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Niguiri Variado (10 un)</h3>
+                            <p class="text-base text-gray-600">Salmão, Atum, Peixe Branco e Camarão</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 45,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Sashimi Variado (12 un)</h3>
+                            <p class="text-base text-gray-600">Salmão, Atum e Peixe Branco fatiados</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 55,00</p>
+                    </article>
+                </div>
+            </div>
+
+            <div id="cat-temakis" class="categoria-conteudo hidden">
+                <h2 class="text-left text-red-600 text-2xl font-semibold mt-12">Temakis</h2>
+                <div>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Temaki Filadélfia</h3>
+                            <p class="text-base text-gray-600">Salmão, cream cheese e pepino</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 28,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Temaki Salmão</h3>
+                            <p class="text-base text-gray-600">Salmão fresco com cream cheese</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 25,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Temaki Camarão</h3>
+                            <p class="text-base text-gray-600">Camarão temperado com cream cheese e pepino</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 32,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Temaki Hot</h3>
+                            <p class="text-base text-gray-600">Filadélfia empanado e frito com cream cheese e missô</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 30,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Temaki Atum</h3>
+                            <p class="text-base text-gray-600">Atum fresco com cream cheese e cebolinha</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 26,00</p>
+                    </article>
+                </div>
+            </div>
+
+            <div id="cat-bebidas" class="categoria-conteudo hidden">
+                <h2 class="text-left text-red-600 text-2xl font-semibold mt-12">Bebidas</h2>
+                <div>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Refrigerante</h3>
+                            <p class="text-base text-gray-600">Lata 350ml (Coca-Cola, Guaraná, Sprite)</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 8,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Água Mineral</h3>
+                            <p class="text-base text-gray-600">Garrafa 500ml (com ou sem gás)</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 4,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Cerveja Heineken</h3>
+                            <p class="text-base text-gray-600">Long neck 330ml</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 14,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Suco Natural</h3>
+                            <p class="text-base text-gray-600">Laranja, Maracujá ou Limão (300ml)</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 12,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Sakê Quente</h3>
+                            <p class="text-base text-gray-600">Bebida tradicional japonesa, 150ml</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 18,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Chá Verde</h3>
+                            <p class="text-base text-gray-600">Quente ou gelado, 300ml</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 7,00</p>
+                    </article>
+                </div>
+            </div>
+
+            <div id="cat-sobremesas" class="categoria-conteudo hidden">
+                <h2 class="text-left text-red-600 text-2xl font-semibold mt-12">Sobremesas</h2>
+                <div>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Mochi de Morango</h3>
+                            <p class="text-base text-gray-600">Bolinho de arroz japonês recheado com morango</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 12,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Mochi de Matchá</h3>
+                            <p class="text-base text-gray-600">Bolinho de arroz com recheio de chá verde</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 12,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Dorayaki</h3>
+                            <p class="text-base text-gray-600">Panqueca japonesa com recheio de pasta de feijão azuki</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 10,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Sorvete de Matchá</h3>
+                            <p class="text-base text-gray-600">Sorvete artesanal de chá verde japonês (2 bolas)</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 15,00</p>
+                    </article>
+                    <article class="pt-5 text-left w-full flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
+                        <div>
+                            <h3 class="block text-xl font-bold mb-1">Tempura de Banana</h3>
+                            <p class="text-base text-gray-600">Banana empanada à japonesa com mel e canela</p>
+                        </div>
+                        <p class="text-lg font-semibold text-red-500 sm:whitespace-nowrap">R$ 14,00</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#333333] text-white text-center py-8 px-4">
+        <h3 class="text-lg font-semibold mb-2">Haruy Sushi</h3>
+        <address class="not-italic mb-1">Rua Prof. Toledo, 500, centro - Sorocaba</address>
+        <p class="mb-1">Contato: (15) 98765-4321</p>
+        <p>Aberto todos os dias das 14h às 23h</p>
+    </footer>
+
+    <a href="https://wa.me/5515987654321" target="_blank" aria-label="WhatsApp Haruy Sushi" class="fixed bottom-5 right-5 w-14 h-14 z-50">
+        <img src="./assets/images/whatsapp.png" alt="WhatsApp Haruy Sushi" class="w-full h-full object-cover">
+    </a>
+    <script>
+        // Menu Mobile 
+        const btn = document.querySelector('#btn-mobile');
+        const menu = document.querySelector('#mobile-menu');
+        const hamburgerIcon = document.querySelector('#hamburger-icon');
+        const closeIcon = document.querySelector('#close-icon');
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+            hamburgerIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("hidden");
+        });
+
+        // Cardápio Categorias
+        const catButtons = document.querySelectorAll('.btn-categoria');
+        const catSections = document.querySelectorAll('.categoria-conteudo');
+
+        function showCategory(cat) {
+            catSections.forEach(sec => sec.classList.add('hidden'));
+            const sel = document.querySelector('#cat-' + cat);
+            if (sel) sel.classList.remove('hidden');
+        }
+
+        // Atualiza o estilo do botão ativo
+        function setActiveButton(cat) {
+            catButtons.forEach(b => {
+                if (b.dataset.cat === cat) {
+                    b.classList.add('bg-red-600', 'text-white');
+                    b.classList.remove('bg-gray-200', 'text-gray-700');
+                } else {
+                    b.classList.remove('bg-red-600', 'text-white');
+                    b.classList.add('bg-gray-200', 'text-gray-700');
+                }
+            });
+        }
+
+        catButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const cat = btn.dataset.cat;
+                showCategory(cat);
+                setActiveButton(cat);
+            });
+        });
+
+        // começa com a primeira categoria ativa
+        if (catButtons.length) {
+            const first = catButtons[0].dataset.cat;
+            showCategory(first);
+            setActiveButton(first);
+        }
+    </script>
+</body>
+
+</html>
